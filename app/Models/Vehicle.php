@@ -29,9 +29,9 @@ class Vehicle extends Model
 
     protected $primaryKey = 'id';
 
-    public function vehicle_types(): HasOne
+    public function Vehicle_types(): HasOne
     {
-        return $this->hasOne(vehicle_types::class);
+        return $this->hasOne(Vehicle_types::class);
     }
 
     public function Parking(): HasOne

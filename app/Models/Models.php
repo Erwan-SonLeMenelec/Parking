@@ -13,7 +13,7 @@ class Models extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nom',
+        'name',
         'description',
         'date de création',
     ];

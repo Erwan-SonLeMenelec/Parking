@@ -13,10 +13,10 @@ class Parking extends Model
 
     protected $fillable = [
 
-        'nom du parking',
+        'nom_du_parking',
         'adresse',
-        'capacité pour voiture',
-        'capacité pour moto',
+        'capacite_pour_voiture',
+        'capacite_pour_moto',
     ];
 
     protected $primaryKey = 'id';

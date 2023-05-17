@@ -18,8 +18,8 @@ class Vehicle extends Model
         'model',
         'vehicle_types',
         'parked',
-        'date de création',
-        'date de mise à jour',
+        'date_de_creation',
+        'date_de_mise_a_jour',
     ];
 
     public function User(): HasOne

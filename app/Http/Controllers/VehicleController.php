@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\MotorcycleVehicle;
 use Illuminate\Http\Request;
 use App\Models\Vehicle;
 use Illuminate\Support\Facades\Storage;
@@ -22,21 +23,14 @@ class VehicleController extends Controller
 
     // Permet d'enregistrer une nouveau parking.
     public function store (Request $request) {
-        $this->validate($request, [
-            "user" => "bail|required|string|max:255",
-            "brand" => "bail|required|string|exists:brands,nom",
-            "model" => "bail|required|alpha_dash|exists:models,nom",
-            "vehicle_types" => "bail|required|string|max:20|exists:vehicle_types,type",
-            "parked" => "bail|required|boolean",
-        ]);
+        if($request->vehiculeType === 'moto') {
+            $vehicule = new MotorcycleVehicle($request->pneu);
+        }
+        if($request->vehiculeType === 'car') {
+            $vehicule = new Car($request->pneu);
+        }
 
-        Vehicle::create([
-            "user" => $request->user,
-            "brand" => $request->brand,
-            "model" =>$request->model,
-            "vehicle_types" => $request->vehicle_types,
-            "parked" => $request->parked,
-        ]);
+        Vehicle::create($vehicule->toArray());
 
         return redirect(route("vehicle.index"));
     }
@@ -53,22 +47,16 @@ class VehicleController extends Controller
     }
 
     // Permet de mettre à jour un véhicule.
-    public function update (Request $request, Vehicle $vehicle) {
-
-        $this->validate($request, [
-            "user" => "bail|required|string|max:255",
-            "brand" => "bail|required|string|exists:brands,nom",
-            "model" => "bail|required|alpha_dash|exists:models,nom",
-            "vehicle_types" => "bail|required|string|max:20|exists:vehicle_types,type",
-            "parked" => "bail|required|boolean",
+    public function update (Request $request) {
+        if($request->vehiculeType === 'moto') {
+            $vehicule = new MotorcycleVehicle($request->pneu);
+        }
+        if($request->vehiculeType === 'car') {
+            $vehicule = new Car($request->pneu);
+        };
         ]);
 
-        Vehicle::update([
-            "user" => $request->user,
-            "brand" => $request->brand,
-            "model" =>$request->model,
-            "vehicle_types" => $request->vehicle_types,
-            "parked" => $request->parked,
+        Vehicle::update($vehicule->toArray());
         ]);
 
         return redirect(route("vehicle.index", $vehicle));

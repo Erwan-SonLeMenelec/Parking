@@ -15,7 +15,7 @@ class Models extends Model
     protected $fillable = [
         'name',
         'description',
-        'date de création',
+        'date_de_creation',
     ];
 
     protected $primaryKey = 'id';

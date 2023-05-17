@@ -33,8 +33,8 @@ class ParkingController extends Controller
         Parking::create([
             "nom_du_parking" => $request->nom_du_parking,
             "adresse" => $request->adresse,
-            "capacité_pour_voiture" => $request-> capacite_pour_voiture,
-            "capacité_pour_moto" => $request -> capacite_pour_moto,
+            "capacite_pour_voiture" => $request-> capacite_pour_voiture,
+            "capacite_pour_moto" => $request -> capacite_pour_moto,
         ]);
 
         return redirect(route("parking.index"));
@@ -64,8 +64,8 @@ class ParkingController extends Controller
         Parking::update([
             "nom_du_parking" => $request->nom_du_parking,
             "adresse" => $request->adresse,
-            "capacité_pour_voiture" => $request-> capacite_pour_voiture,
-            "capacité_pour_moto" => $request -> capacite_pour_moto,
+            "capacite_pour_voiture" => $request-> capacite_pour_voiture,
+            "capacite_pour_moto" => $request -> capacite_pour_moto,
         ]);
 
         return redirect(route("parking.index", $parking));

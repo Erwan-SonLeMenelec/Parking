@@ -2,8 +2,11 @@
 
 namespace App\Contracts;
 
-use
-class Car implements Vehicle
+interface VehicleInterface
 {
+    public const PNEUS_REPAIRED = 4;
+
+    public function repair();
+    public function park();
 
 }

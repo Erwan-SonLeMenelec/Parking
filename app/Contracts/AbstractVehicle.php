@@ -2,7 +2,7 @@
 
 namespace App\Contracts;
 
-class AbstractVehicle implements VehicleInterface
+abstract class AbstractVehicle implements VehicleInterface
 {
     protected int $pneus;
     private bool $park=true;

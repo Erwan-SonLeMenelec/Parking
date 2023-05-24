@@ -13,13 +13,11 @@ class Vehicle extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user',
+        'user_id',
         'brand',
         'model',
         'vehicle_types',
-        'parked',
-        'date_de_creation',
-        'date_de_mise_a_jour',
+        'parked'
     ];
 
     public function User(): HasOne
@@ -31,10 +29,10 @@ class Vehicle extends Model
 
     public function Vehicle_types(): HasOne
     {
-        return $this->hasOne(Vehicle_types::class);
+        return $this->hasOne(Vehicle_type::class);
     }
 
-    public function Parking(): HasOne
+    public function Parkings(): HasOne
     {
         return $this->hasOne(Parking::class);
     }

@@ -21,7 +21,7 @@ class Parking extends Model
 
     protected $primaryKey = 'id';
 
-    public function Vehicle(): BelongsTo
+    public function Vehicles(): BelongsTo
     {
         return $this->BelongsTo(Vehicle::class);
     }

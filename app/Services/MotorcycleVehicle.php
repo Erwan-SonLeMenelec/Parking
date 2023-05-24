@@ -3,23 +3,23 @@
 namespace App\Services;
 
 use App\Contracts\AbstractVehicle;
-use App\Models\Brands;
-use App\Models\Models;
+use App\Models\Brand;
+use App\Models\Model;
 use App\Models\User;
-use App\Models\Vehicle_types;
+use App\Models\Vehicle_type;
 
 class MotorcycleVehicle extends AbstractVehicle {
 
 
     public function __construct(
-        int $pneus,
-        User $user,
-        Brands $brand,
-        Models $model,
-        Vehicle_types $vehicle_types,
-        bool $parked,
-        string $date_de_creation,
-        string $date_de_mise_a_jour,
+        int          $pneus,
+        User         $user,
+        Brand        $brand,
+        Model        $model,
+        Vehicle_type $vehicle_types,
+        bool         $parked,
+        string       $created_at,
+        string       $date_de_mise_a_jour,
     )
     {
         $this->pneus = $pneus;
@@ -28,13 +28,13 @@ class MotorcycleVehicle extends AbstractVehicle {
         $this->model = $model;
         $this->vehicle_types = $vehicle_types;
         $this->parked = $parked;
-        $this->date_de_creation = $date_de_creation;
+        $this->created_at = $created_at;
         $this->date_de_mise_a_jour = $date_de_mise_a_jour;
     }
 
 
 
-    private function toArray(): array
+    public function toArray(): array
     {
         return [
             "user" => $this->user,

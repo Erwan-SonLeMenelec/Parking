@@ -22,12 +22,13 @@ class User extends Authenticatable
     protected $fillable = [
         'nom',
         'prenom',
-        'adresse_email',
-        'date_de_creation',
-        'date_de_mise_a_jour',
+        'email',
+        'email_verified_at',
+        'password',
+        'remember_token'
     ];
 
-    public function Vehicle(): HasMany
+    public function Vehicles(): HasMany
     {
         return $this->hasMany(Vehicle::class);
     }

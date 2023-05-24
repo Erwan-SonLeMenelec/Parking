@@ -6,17 +6,19 @@ use Illuminate\Http\Request;
 use App\Models\Parking;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
 
 class ParkingController extends Controller
 {
     // Permet d'afficher une liste des parkings.
-    public function index () {
-        $parkings = Parking::latest()->get();
-        return view("parking.index", compact ("parkings"));
+    public function index (): View {
+        $parking = Parking::latest()->get();
+        return view("parking.index", compact ("parking"));
     }
 
     // Permet de présenter un formulaire pour créer un nouveau parking.
     public function create () {
+        $parking = new Parking();
         return view("parking.edit");
 
     }

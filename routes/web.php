@@ -20,3 +20,7 @@ Route::resource("parking", ParkingController::class);
 Route::resource ("vehicle", VehicleController::class);
 Route::resource("user", UserController::class);
 
+Route::get("/",function() {
+    dd(app());
+});
+

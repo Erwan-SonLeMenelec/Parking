@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Models extends Model
+class Model extends Model
 {
     use HasFactory;
 
@@ -22,10 +22,10 @@ class Models extends Model
 
     public function Vehicle_types(): HasOne
     {
-        return $this->hasOne(vehicle_types::class);
+        return $this->hasOne(Vehicle_type::class);
     }
     public function Brands(): BelongsTo
     {
-        return $this->BelongsTo(Brands::class);
+        return $this->BelongsTo(Brand::class);
     }
 }

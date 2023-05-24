@@ -11,16 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vehicle', function (Blueprint $table) {
+        Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
-            $table->string("user");
             $table->string("brand");
             $table->string("model");
             $table->string("vehicle_types");
-            $table->boolean("parked");
-            $table->dateTime("date_de_creation");
-            $table->dateTime("date_de_mise_a_jour");
+            $table->boolean("parked")->default(false);
+            $table->foreignIdFor(\App\Models\User::class); // {table_singulier}_id
+            $table->foreignIdFor(\App\Models\Parking::class)->nullable()->constrained()->cascadeOnDelete();
+            $table->timestamps();
         });
+
     }
 
     /**
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vehicle');
+        Schema::dropIfExists('vehicles');
     }
 };
